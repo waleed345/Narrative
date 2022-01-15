@@ -1,32 +1,51 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="white"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-btn color="transparent" depressed :link="true" to="/">
+        <v-img
+         
+          alt="Narrative Logo"
+          class="mr-5"
+          contain
+          :src="require('./assets/images/narrative_logo.webp')"
+          transition="scale-transition"
+        />
+        </v-btn>
+      </div> 
+
+      <v-spacer></v-spacer>
+      
+      <v-btn color="black" class="mr-2" dark small :link="true" to="/buy">
+        Buy
+        <v-icon>mdi-chevron-down</v-icon>
+      </v-btn>
+
+      <v-btn color="black" class="mr-2" dark small :link="true" to="/sell">
+        Sell
+        <v-icon>mdi-chevron-down</v-icon>
+      </v-btn>
+
+      <v-btn color="black" dark small :link="true" to="/discover">
+        Discover
+        <v-icon>mdi-chevron-down</v-icon>
+      </v-btn>
+
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  name: 'App',
+};
+</script>
